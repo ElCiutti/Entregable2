@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
     <link rel="stylesheet" href="./assets/css/style2.css">
+    <script>
+        // Función para validar el inicio de sesión
+        function iniciarSesion(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Obtener usuarios almacenados en localStorage
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            // Buscar al usuario por correo y contraseña
+            const usuario = usuarios.find(user => user.email === email && user.password === password);
+
+            if (usuario) {
+                // Validar si el usuario es comprador o productor
+                if (usuario.tipo_usuario === "comprador") {
+                    alert(`Bienvenido comprador, ${usuario.nombre}`);
+                    // Aquí puedes redirigir a una página de compradores
+                    window.location.href = 'comprador_dashboard.html';
+                } else if (usuario.tipo_usuario === "productor") {
+                    alert(`Bienvenido productor, ${usuario.nombre}`);
+                    // Aquí puedes redirigir a una página de productores
+                    window.location.href = 'productor_dashboard.html';
+                }
+            } else {
+                alert('Credenciales incorrectas. Por favor, intente de nuevo.');
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container" style="display: flex; justify-content: center; align-items: center; height: 80vh;">
@@ -13,7 +43,7 @@
                 <img src="./assets/images/logoTEPAT.webp" alt="Logo" class="logo-img">
             </a>
             <h1 class="h2 section-title">Iniciar Sesión</h1>
-            <form action="#" method="post" class="form">
+            <form onsubmit="iniciarSesion(event)" method="post" class="form">
                 <div class="form-group">
                     <label for="email">Correo Electrónico:</label>
                     <input type="email" id="email" name="email" class="form-input" required>
@@ -36,4 +66,3 @@
     </div>
 </body>
 </html>
-

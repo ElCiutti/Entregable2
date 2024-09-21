@@ -21,7 +21,7 @@
         </button>
 
         <ul class="navbar-list">
-          <li class="navbar-item"><a href="index.html" class="navbar-link" data-nav-link>Inicio</a></li>
+          <li class="navbar-item"><a href="comprador_dashboard.html" class="navbar-link" data-nav-link>Inicio</a></li>
           <li class="navbar-item"><a href="vendedores.html" class="navbar-link" data-nav-link>Vendedores</a></li>
           <li class="navbar-item"><a href="tienda.html" class="navbar-link" data-nav-link>Tienda</a></li>
           <li class="navbar-item"><a href="contacto.html" class="navbar-link" data-nav-link>Contacto</a></li>
@@ -30,7 +30,6 @@
 
       </nav>
 
-      <a href="login.html" class="btn btn-primary">Iniciar Sesión</a>
 
       <button class="nav-toggle-btn" aria-label="open menu" data-nav-toggler>
         <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
@@ -40,6 +39,52 @@
 
     </div>
   </header>
+
+  <script>
+    // Función para cargar el JSON de productos
+    async function cargarProductos() {
+    try {
+      const response = await fetch('assets/json/productos.json');
+      const data = await response.json();
+      const productContainer = document.querySelector('.grid-list');
+
+      data.productos.forEach(producto => {
+        const productHTML = `
+          <li>
+            <div class="course-card">
+              <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
+                <img src="${producto.img}" width="350" height="300" loading="lazy" alt="${producto.nombre}" class="img-cover">
+              </figure>
+              <div class="card-content">
+                <data class="card-price" value="${producto.precio}">$${producto.precio} kg</data>
+                <p class="card-author">Por: <span class="span">${producto.vendedor}</span></p>
+                <h3 class="h3">${producto.nombre}</h3>
+                <button class="btn btn-secondary add-to-cart" data-product="${producto.nombre}" data-price="${producto.precio}">
+                  Agregar al carrito
+                </button>
+              </div>
+            </div>
+          </li>
+        `;
+        productContainer.innerHTML += productHTML;
+      });
+
+      // Asignar eventos a los nuevos botones de "Agregar al carrito"
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+          const productName = button.getAttribute('data-product');
+          const productPrice = parseFloat(button.getAttribute('data-price'));
+          addToCart(productName, productPrice);
+          alert(`${productName} ha sido agregado al carrito.`);
+        });
+      });
+    } catch (error) {
+      console.error("Error al cargar los productos:", error);
+    }
+  }
+
+    
+    </script>
 
   <!-- Sección de Tienda -->
   <main>
@@ -53,7 +98,7 @@
         <ul class="grid-list">
 
           <!-- Producto 1 -->
-          <li>
+          <!-- <li>
             <div class="course-card">
               <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
                 <img src="./assets/images/courses-1.jpg" width="350" height="300" loading="lazy" alt="Jitomates"
@@ -68,7 +113,7 @@
             </div>
           </li>
 
-          <!-- Producto 2 -->
+          <!-- Producto 2 --d>
           <li>
             <div class="course-card">
               <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
@@ -84,7 +129,7 @@
             </div>
           </li>
 
-          <!-- Producto 3 -->
+          <!-- Producto 3 --d>
           <li>
             <div class="course-card">
               <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
@@ -100,7 +145,7 @@
             </div>
           </li>
 
-          <!-- Producto 4 -->
+          <!-- Producto 4 --d>
           <li>
             <div class="course-card">
               <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
@@ -116,7 +161,7 @@
             </div>
           </li>
 
-          <!-- Producto 5 -->
+          <!-- Producto 5 --d>
           <li>
             <div class="course-card">
               <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
@@ -132,7 +177,7 @@
             </div>
           </li>
 
-          <!-- Producto 6 -->
+          <!-- Producto 6 --d>
           <li>
             <div class="course-card">
               <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
@@ -146,7 +191,10 @@
                 <button class="btn btn-secondary add-to-cart" data-product="Limones" data-price="68">Agregar al carrito</button>
               </div>
             </div>
-          </li>
+          </li> -->
+          <script>
+            document.addEventListener('DOMContentLoaded', cargarProductos);
+          </script>
 
         </ul>
       </div>
@@ -182,6 +230,7 @@
       });
     });
   </script>
+    
 
   <script src="./assets/js/script.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

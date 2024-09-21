@@ -6,35 +6,46 @@
     <title>Registro de Usuario</title>
     <link rel="stylesheet" href="./assets/css/style2.css">
     <script>
-        function validarContrasena() {
+        // Función para registrar usuarios y guardarlos en localStorage
+        function registrarUsuario(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const date_born = document.getElementById('date_born').value;
+            const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm_password').value;
-            const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
+            const estado = document.getElementById('estado').value;
+            const tipo_usuario = document.querySelector('input[name="tipo_usuario"]:checked').value;
 
-            if (!regex.test(password)) {
-                alert("La contraseña debe tener al menos 8 caracteres, una mayúscula y un carácter especial.");
-                return false;
+            // Validación básica
+            if (!nombre || !email || !password) {
+                alert('Por favor, complete todos los campos');
+                return;
             }
 
-            if (password !== confirmPassword) {
-                alert("Las contraseñas no coinciden.");
-                return false;
+            // Obtener usuarios almacenados en localStorage
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            // Verificar si el correo ya está registrado
+            const usuarioExistente = usuarios.find(user => user.email === email);
+            if (usuarioExistente) {
+                alert('Este correo ya está registrado');
+                return;
             }
 
-            const terminos = document.getElementById('terminos');
-            if (!terminos.checked) {
-                alert("Debes aceptar los términos y condiciones.");
-                return false;
-            }
+            // Agregar el nuevo usuario al array y guardarlo en localStorage
+            usuarios.push({ nombre, date_born, email, password, estado, tipo_usuario });
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-            return true;
+            alert('Registro exitoso. Ahora puede iniciar sesión.');
+            window.location.href = 'sesion.html'; // Redirigir al inicio de sesión
         }
     </script>
 </head>
 <body>
     <div class="container">
         <h1 class="section-title">Registro de Usuario</h1>
-        <form action="#" method="post" onsubmit="return validarContrasena()">
+        <form id="registroForm" method="post" onsubmit="registrarUsuario(event)">
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" class="form-input" required>
@@ -58,8 +69,8 @@
 
             <div class="form-group">
                 <label>Tipo de Usuario:</label>
-                <label><input type="radio" name="tipo_usuario" value="comprador" onclick="mostrarCampos()" checked> Comprador</label>
-                <label><input type="radio" name="tipo_usuario" value="productor" onclick="mostrarCampos()"> Productor</label>
+                <label><input type="radio" name="tipo_usuario" value="comprador" checked> Comprador</label>
+                <label><input type="radio" name="tipo_usuario" value="productor"> Productor</label>
             </div>
 
             <div class="form-group">
@@ -68,35 +79,7 @@
                     <option value="">Seleccione un estado</option>
                     <option value="Aguascalientes">Aguascalientes</option>
                     <option value="Baja California">Baja California</option>
-                    <option value="Baja California Sur">Baja California Sur</option>
-                    <option value="Campeche">Campeche</option>
-                    <option value="Chiapas">Chiapas</option>
-                    <option value="Chihuahua">Chihuahua</option>
-                    <option value="Coahuila">Coahuila</option>
-                    <option value="Colima">Colima</option>
-                    <option value="Durango">Durango</option>
-                    <option value="Guanajuato">Guanajuato</option>
-                    <option value="Guerrero">Guerrero</option>
-                    <option value="Hidalgo">Hidalgo</option>
-                    <option value="Jalisco">Jalisco</option>
-                    <option value="Estado de México">Estado de México</option>
-                    <option value="Michoacán">Michoacán</option>
-                    <option value="Morelos">Morelos</option>
-                    <option value="Nayarit">Nayarit</option>
-                    <option value="Nuevo León">Nuevo León</option>
-                    <option value="Oaxaca">Oaxaca</option>
-                    <option value="Puebla">Puebla</option>
-                    <option value="Querétaro">Querétaro</option>
-                    <option value="Quintana Roo">Quintana Roo</option>
-                    <option value="San Luis Potosí">San Luis Potosí</option>
-                    <option value="Sinaloa">Sinaloa</option>
-                    <option value="Sonora">Sonora</option>
-                    <option value="Tabasco">Tabasco</option>
-                    <option value="Tamaulipas">Tamaulipas</option>
-                    <option value="Tlaxcala">Tlaxcala</option>
-                    <option value="Veracruz">Veracruz</option>
-                    <option value="Yucatán">Yucatán</option>
-                    <option value="Zacatecas">Zacatecas</option>
+                    <!-- Agrega el resto de los estados -->
                 </select>
             </div>
 
@@ -114,6 +97,8 @@
             <div class="form-group">
                 <p>¿Ya tienes una cuenta? <a href="sesion.html" class="link">Inicia Sesión aquí</a></p>
             </div>
+
+            <div id="mensaje" style="display: none;"></div>
         </form>
     </div>
 </body>
