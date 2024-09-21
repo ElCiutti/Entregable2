@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="width=device-width, initial-scale=1.0">
+  <title>Tepat - Tienda</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body id="top">
+
+  <!-- Header -->
+  <header class="header" data-header>
+    <div class="container">
+      <a href="index.html" class="logo">Tepat<span class="span">.</span></a>
+
+      <nav class="navbar" data-navbar>
+        <button class="nav-toggle-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="index.html" class="navbar-link" data-nav-link>Inicio</a></li>
+          <li class="navbar-item"><a href="vendedores.html" class="navbar-link" data-nav-link>Vendedores</a></li>
+          <li class="navbar-item"><a href="tienda.html" class="navbar-link" data-nav-link>Tienda</a></li>
+          <li class="navbar-item"><a href="contacto.html" class="navbar-link" data-nav-link>Contacto</a></li>
+          <li class="navbar-item"><a href="carrito.html" class="navbar-link" data-nav-link>Carrito</a></li>
+        </ul>
+
+      </nav>
+
+      <a href="login.html" class="btn btn-primary">Iniciar Sesión</a>
+
+      <button class="nav-toggle-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+  <!-- Sección de Tienda -->
+  <main>
+    <section class="section course" aria-label="course" id="course" data-section>
+      <div class="container">
+        <div class="title-wrapper">
+          <p class="section-subtitle">100+ Productos Disponibles</p>
+          <h2 class="h2 section-title">Tienda de Productos</h2>
+        </div>
+
+        <ul class="grid-list">
+
+          <!-- Producto 1 -->
+          <li>
+            <div class="course-card">
+              <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
+                <img src="./assets/images/courses-1.jpg" width="350" height="300" loading="lazy" alt="Jitomates"
+                  class="img-cover">
+              </figure>
+              <div class="card-content">
+                <data class="card-price" value="98">$70 kg</data>
+                <p class="card-author">Por: <span class="span">Juan Ramírez</span></p>
+                <h3 class="h3">Jitomates</h3>
+                <button class="btn btn-secondary add-to-cart" data-product="Jitomates" data-price="98">Agregar al carrito</button>
+              </div>
+            </div>
+          </li>
+
+          <!-- Producto 2 -->
+          <li>
+            <div class="course-card">
+              <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
+                <img src="./assets/images/courses-2.jpg" width="350" height="300" loading="lazy" alt="Aguacates"
+                  class="img-cover">
+              </figure>
+              <div class="card-content">
+                <data class="card-price" value="72">$90 kg</data>
+                <p class="card-author">Por: <span class="span">Mónica Martínez</span></p>
+                <h3 class="h3">Aguacates</h3>
+                <button class="btn btn-secondary add-to-cart" data-product="Aguacates" data-price="72">Agregar al carrito</button>
+              </div>
+            </div>
+          </li>
+
+          <!-- Producto 3 -->
+          <li>
+            <div class="course-card">
+              <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
+                <img src="./assets/images/courses-3.jpg" width="350" height="300" loading="lazy" alt="Cebollas"
+                  class="img-cover">
+              </figure>
+              <div class="card-content">
+                <data class="card-price" value="68">$60 kg</data>
+                <p class="card-author">Por: <span class="span">Luis Ocampo</span></p>
+                <h3 class="h3">Cebollas</h3>
+                <button class="btn btn-secondary add-to-cart" data-product="Cebollas" data-price="68">Agregar al carrito</button>
+              </div>
+            </div>
+          </li>
+
+          <!-- Producto 4 -->
+          <li>
+            <div class="course-card">
+              <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
+                <img src="./assets/images/courses-4.jpg" width="350" height="300" loading="lazy" alt="Pepinos"
+                  class="img-cover">
+              </figure>
+              <div class="card-content">
+                <data class="card-price" value="98">$85 kg</data>
+                <p class="card-author">Por: <span class="span">Bryan Ruíz</span></p>
+                <h3 class="h3">Pepinos</h3>
+                <button class="btn btn-secondary add-to-cart" data-product="Pepinos" data-price="98">Agregar al carrito</button>
+              </div>
+            </div>
+          </li>
+
+          <!-- Producto 5 -->
+          <li>
+            <div class="course-card">
+              <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
+                <img src="./assets/images/courses-5.jpg" width="350" height="300" loading="lazy" alt="Zanahorias"
+                  class="img-cover">
+              </figure>
+              <div class="card-content">
+                <data class="card-price" value="72">$75 kg</data>
+                <p class="card-author">Por: <span class="span">Arlene Covarrubias</span></p>
+                <h3 class="h3">Zanahorias</h3>
+                <button class="btn btn-secondary add-to-cart" data-product="Zanahorias" data-price="72">Agregar al carrito</button>
+              </div>
+            </div>
+          </li>
+
+          <!-- Producto 6 -->
+          <li>
+            <div class="course-card">
+              <figure class="card-banner img-holder" style="--width: 350; --height: 300;">
+                <img src="./assets/images/courses-6.jpg" width="350" height="300" loading="lazy" alt="Limones"
+                  class="img-cover">
+              </figure>
+              <div class="card-content">
+                <data class="card-price" value="68">$65 kg</data>
+                <p class="card-author">Por: <span class="span">Selena Mujía</span></p>
+                <h3 class="h3">Limones</h3>
+                <button class="btn btn-secondary add-to-cart" data-product="Limones" data-price="68">Agregar al carrito</button>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Función para añadir un producto al carrito y guardarlo en localStorage
+    function addToCart(productName, productPrice) {
+      // Obtener el carrito de localStorage o inicializarlo si está vacío
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Verificar si el producto ya existe en el carrito
+      const existingProduct = cart.find(item => item.name === productName);
+      if (existingProduct) {
+        existingProduct.quantity += 1; // Si ya existe, aumentar la cantidad
+      } else {
+        // Si no existe, agregarlo con cantidad 1 y su precio
+        cart.push({ name: productName, price: productPrice, quantity: 1 });
+      }
+
+      // Guardar el carrito actualizado en localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Añadir eventos a todos los botones "Agregar al carrito"
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        const productName = button.getAttribute('data-product');
+        const productPrice = parseFloat(button.getAttribute('data-price'));
+        addToCart(productName, productPrice);
+        alert(`${productName} ha sido agregado al carrito.`);
+      });
+    });
+  </script>
+
+  <script src="./assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
