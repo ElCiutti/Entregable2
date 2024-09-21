@@ -1,0 +1,77 @@
+{
+    "productos": [
+      {
+        "nombre": "Jitomates",
+        "precio": 70,
+        "vendedor": "Juan Ramírez",
+        "img": "./assets/images/courses-1.jpg"
+      },
+      {
+        "nombre": "Aguacates",
+        "precio": 90,
+        "vendedor": "Mónica Martínez",
+        "img": "./assets/images/courses-2.jpg"
+      },
+      {
+        "nombre": "Cebollas",
+        "precio": 60,
+        "vendedor": "Luis Ocampo",
+        "img": "./assets/images/courses-3.jpg"
+      },
+      {
+        "nombre": "Pepinos",
+        "precio": 85,
+        "vendedor": "Bryan Ruíz",
+        "img": "./assets/images/courses-4.jpg"
+      },
+      {
+        "nombre": "Zanahorias",
+        "precio": 75,
+        "vendedor": "Arlene Covarrubias",
+        "img": "./assets/images/courses-5.jpg"
+      },
+      {
+        "nombre": "Limones",
+        "precio": 65,
+        "vendedor": "Selena Mujía",
+        "img": "./assets/images/courses-6.jpg"
+      },
+      {
+        "nombre": "Jitomates",
+        "precio": 70,
+        "vendedor": "Juan Ramírez",
+        "img": "./assets/images/courses-1.jpg"
+      },
+      {
+        "nombre": "Aguacates",
+        "precio": 90,
+        "vendedor": "Mónica Martínez",
+        "img": "./assets/images/courses-2.jpg"
+      },
+      {
+        "nombre": "Zanahorias",
+        "precio": 75,
+        "vendedor": "Arlene Covarrubias",
+        "img": "./assets/images/courses-5.jpg"
+      },
+      {
+        "nombre": "Limones",
+        "precio": 65,
+        "vendedor": "Selena Mujía",
+        "img": "./assets/images/courses-6.jpg"
+      },
+      {
+        "nombre": "Jitomates",
+        "precio": 70,
+        "vendedor": "Juan Ramírez",
+        "img": "./assets/images/courses-1.jpg"
+      },
+      {
+        "nombre": "Aguacates",
+        "precio": 90,
+        "vendedor": "Mónica Martínez",
+        "img": "./assets/images/courses-2.jpg"
+      }
+    ]
+  }
+  
